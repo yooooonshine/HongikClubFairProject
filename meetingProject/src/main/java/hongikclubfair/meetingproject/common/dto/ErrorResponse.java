@@ -2,10 +2,13 @@ package hongikclubfair.meetingproject.common.dto;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import hongikclubfair.meetingproject.common.exception.BaseErrorCode;
 import hongikclubfair.meetingproject.common.exception.MeetingException;
 
 public record ErrorResponse(
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	LocalDateTime timeStamp,
 	boolean isSuccess,
 	int status,
