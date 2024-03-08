@@ -14,6 +14,6 @@ public enum GlobalErrorCode implements BaseErrorCode {
 
 	@Override
 	public ErrorReason getErrorCode() {
-		return null;
+		return new ErrorReason(status, code, reason);
 	}
 }
