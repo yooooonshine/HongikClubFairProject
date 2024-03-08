@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import hongikclubfair.meetingproject.common.exception.BaseErrorCode;
 
-public record ErrorResponse (
+public record ErrorResponse(
 	LocalDateTime timeStamp,
 	boolean isSuccess,
 	int status,
