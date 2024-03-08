@@ -6,8 +6,10 @@ function clickNext() {
 
     if(!instagramId) {
         alert('인스타 아이디를 입력해주세요');
+        return;
     } else if(!introduction) {
         alert('자기 소개를 입력해주세요');
+        return;
     } else{
         const instagramIdRegex = /^([A-Za-z0-9._]{1,30})$/;
         if (!instagramIdRegex.test(instagramId)) {
