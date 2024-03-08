@@ -11,26 +11,30 @@ public class MainController {
 
 	@GetMapping("/")
 	public String main() {
-		log.info("why=================================");
 		return "main";
 	}
 
-	@GetMapping("/gender")
+	@GetMapping("/api/gender")
 	public String gender() {
 		return "gender";
 	}
 
-	@GetMapping("/form")
+	@GetMapping("/api/form")
 	public String form() {
 		return "form";
 	}
 
-	@GetMapping("/choice")
-	public String choice() {
-		return "choice";
+	@GetMapping("/api/people_choice")
+	public String peopleChoice() {
+		return "peopleChoice";
 	}
 
-	@GetMapping("/result")
+	@GetMapping("/api/gender_choice")
+	public String genderChoice() {
+		return "genderChoice";
+	}
+
+	@GetMapping("/api/result")
 	public String result() {
 		return "result";
 	}
