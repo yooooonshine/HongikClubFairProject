@@ -39,13 +39,13 @@ function requestMatching() {
             } else if (data.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {
-                alert("알 수 없는 에러입니다.");
+                alert("알 수 없는 예외입니다.");
             }
         },
-        error: function (jqrXHR, status, error) {
+        error: function () {
             deleteMemberCardAll();
             makeErrorMessage();
-            alert("알 수 없는 에러입니다.");
+            alert("서버와의 연결이 되지 않습니다.");
 
         },
     })
@@ -71,8 +71,10 @@ function makeMemberCard(memberId, gender, introduction) {
 
 //매칭된 사람이 없을 경우
 function makeErrorMessage() {
-    const errorMessage = "매칭될 사람이 아직 없어요.."
-    $("#cardOuterContainer").append(errorMessage);
+    const errorMessage =
+        "<div class='col'>매칭될 사람이 아직 없어요..</div>";
+
+    $("#cardContainer").append(errorMessage);
 }
 
 //html 카드 제거
