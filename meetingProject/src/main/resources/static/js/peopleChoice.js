@@ -10,6 +10,12 @@ window.onload = function () {
 function requestMatching() {
     const memberId = localStorage.getItem("memberId");
 
+    if (memberId === null) {
+        alert("기본 정보를 입력해주세요");
+
+        window.location.assign("/member_form");
+    }
+
     let data = {"id" : memberId};
 
     $.ajax({
