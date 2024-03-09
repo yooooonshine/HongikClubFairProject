@@ -1,9 +1,0 @@
-
-
-function clickManButton() {
-
-}
-
-function clickWomanButton() {
-
-}
