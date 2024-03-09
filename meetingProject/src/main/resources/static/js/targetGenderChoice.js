@@ -29,12 +29,15 @@ function submitForm(targetGender) {
             'instagramId': instagramId,
             'introduction': introduction,
             'gender': gender,
-            'targerGender': targetGender
+            'targetGender': targetGender
         },
         dataType: 'JSON',
         success: function (data) {
-            window.location.assign("/api/people_choice");
-        }
+            window.location.assign("/people_choice");
+        },
+        error: function (jqrXHR, status, error) {
+            // 추후 예외에 맞게 작성
+        },
     })
 }
 

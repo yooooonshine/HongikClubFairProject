@@ -20,5 +20,5 @@ function clickNext() {
     localStorage.setItem("instagramId", instagramId);
     localStorage.setItem("introduction", introduction);
 
-    window.location.assign("/api/people_choice");
+    window.location.assign("/target_gender_choice");
 }
