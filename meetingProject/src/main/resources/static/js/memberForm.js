@@ -22,3 +22,10 @@ function clickNext() {
 
     window.location.assign("/target_gender_choice");
 }
+
+//처음으로 돌아가기
+function directIntro() {
+    localStorage.clear();
+
+    window.location.assign("/");
+}
