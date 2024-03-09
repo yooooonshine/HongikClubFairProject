@@ -87,7 +87,6 @@ function makeGenderText(gender) {
 
 //사람 선택
 function choicePeople(memberId) {
-    localStorage.removeItem("memberId");
     localStorage.setItem("chosenMemberId", memberId);
 
     window.location.assign("/result");
