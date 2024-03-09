@@ -22,6 +22,12 @@ function submitForm(targetGender) {
     const introduction = localStorage.getItem("introduction");
     const gender = localStorage.getItem("gender");
 
+    if (instagramId === null || introduction === null || gender === null) {
+        alert("기본정보를 입력해주세요.");
+
+        window.location.assign("/member_form");
+    }
+
     $.ajax({
         type: 'post',
         url: '/api/resume',
@@ -53,7 +59,7 @@ function submitForm(targetGender) {
         error: function (jqrXHR, status, error) {
             alert("알 수 없는 에러입니다.");
         },
-    })
+    });
 }
 
 function requestId(instagramId) {
