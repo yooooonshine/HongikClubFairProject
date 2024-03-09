@@ -53,11 +53,11 @@ function submitForm(targetGender) {
             } else if (data.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {
-                alert("알 수 없는 에러입니다.");
+                alert("알 수 없는 예외입니다.");
             }
         },
-        error: function (jqrXHR, status, error) {
-            alert("알 수 없는 에러입니다.");
+        error: function () {
+            alert("서버와의 연결이 되지 않습니다.");
         },
     });
 }
