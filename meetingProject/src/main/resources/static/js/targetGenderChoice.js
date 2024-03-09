@@ -36,7 +36,7 @@ function submitForm(targetGender) {
         dataType: 'JSON',
         success: function (data) {
             if (data.status === 200) {
-                localStorage.setItem("memberId", data.id);
+                localStorage.setItem("memberId", data.data);
                 window.location.assign("/people_choice");
             }
             if (data.status === 400) {
