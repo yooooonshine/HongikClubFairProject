@@ -23,6 +23,14 @@ function clickNext() {
     }
     localStorage.setItem("instagramId", instagramId);
     localStorage.setItem("introduction", introduction);
+    localStorage.setItem("gender", gender);
 
     window.location.assign("/target_gender_choice");
+}
+
+//처음으로 돌아가기
+function directIntro() {
+    localStorage.clear();
+
+    window.location.assign("/");
 }

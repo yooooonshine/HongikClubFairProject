@@ -12,32 +12,17 @@
 </head>
 
 <body>
+<button type="button" class="btn btn-primary" onclick="directBeforePage()">이전 페이지로</button>
+<div id="peopleChoiceQuestion">이 중에, 친해지고 싶은 분이 있나요?</div>
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 id="gender1" class="card-title">성별</h5>
-        <p id="introduce1" class="card-text"></p>
-        <button type="button1" class="btn btn-primary">선택</button>
+<div id="cardOuterContainer" class="grid text-center">
+    <div id="cardContainer" class="row">
     </div>
 </div>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 id="gender2" class="card-title">성별</h5>
-        <p id="introduce2" class="card-text"></p>
-        <button type="button2" class="btn btn-primary">선택</button>
-    </div>
-</div>
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 id="gender3" class="card-title">성별</h5>
-        <p id="introduce3" class="card-text"></p>
-        <button type="button3" class="btn btn-primary">선택</button>
-    </div>
 
-</div>
+<button type="button" class="btn btn-dark" onclick="requestMatching()">다시 매칭하고 싶어요</button>
 
-
-<button type="button" class="btn btn-primary" id="rematch">재매칭</button>
+<button type="button" class="btn btn-dark" onclick="directIntro()">처음으로 돌아가기</button>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
