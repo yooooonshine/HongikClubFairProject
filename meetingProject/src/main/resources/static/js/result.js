@@ -4,23 +4,23 @@ window.onload=function() {
         .then((response) => response.json())
         .then((result) => {
             console.log(result);
-            chosenPerson(result.data.instagramId, result.data.introduction);
+            makeMemberCard(result.data.instagramId, result.data.introduction);
         })
         .catch((error) => {
             if (error.status === 400) {
                 alert("잘못된 요청입니다.");
             } else if(error.status === 404){
                 alert("선택된 사람을 찾지 못했습니다.");
+                window.location.assign("/people_choice");
             } else if(error.status === 500){
                 alert("잘못된 요청입니다.");
             } else {
-                chosenPerson("@seoyeonzn", "안녕하세요! 친해져요><")
-                alert("서버와 연결되지 않았습니다.");
+                alert("알 수 없는 예외 입니다.");
             }
         })
 }
 
-function chosenPerson(instagramId, introduction) {
+function makeMemberCard(instagramId, introduction) {
     const insta = document.getElementById('instagramId');
     insta.innerText = instagramId;
 
@@ -75,7 +75,7 @@ function submitForm(phoneNumber) {
     })
 }
 
-function goBack() {
+function directBeforePage() {
     window.localStorage.removeItem("chosenMemberId");
     history.back();
 }
