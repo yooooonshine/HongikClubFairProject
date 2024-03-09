@@ -22,10 +22,16 @@ window.onload=function() {
 
 function makeMemberCard(instagramId, introduction) {
     const insta = document.getElementById('instagramId');
-    insta.innerText = instagramId;
+    insta.innerText = "@"+instagramId;
 
     const intro = document.getElementById('introduction');
     intro.innerText = introduction;
+
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "https://www.instagram.com/"+instagramId,
+        width: 150,
+        height: 150,
+    });
 }
 
 function sendMessage() {
