@@ -1,6 +1,12 @@
 :root{
     --font: "Pretendard Variable", sans-serif;
-    --bg: rgb(255, 255, 255);
+    --bg: #f5f8ff;
+    --bgl: #e6ebf7;
+    --thd: #46517D;
+    --thl: #b6c5e3;
+
+    --thm: rgb(128, 128, 255);
+    --thf: rgb(255, 128, 128);
 }
 
 html {
@@ -49,7 +55,7 @@ main {
     height: 42rem;
     padding: 3rem;
     border-radius: 3rem;
-    background: rgb(245, 245, 245);
+    background: var(--bgl);
 }
 
 .inwrapper {
@@ -78,7 +84,7 @@ main {
     left: 3rem;
     padding: 1rem 2rem;
     border-radius: 0 2rem 2rem 2rem;
-    background: rgb(245, 245, 245);
+    background: white;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -89,7 +95,7 @@ main {
     right: 3rem;
     padding: 1rem 2rem;
     border-radius: 2rem 2rem 0 2rem;
-    background: rgb(245, 245, 245);
+    background: white;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -101,11 +107,9 @@ main {
     display: flex;
     justify-content: center;
 }
-.submit > button {
+button {
     border: none;
     outline: none;
-    background: black;
-    color: white;
     height: 3rem;
     width: 16rem;
     border-radius: 0.75rem;
@@ -113,16 +117,26 @@ main {
     font-weight: 700;
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition: transform 0.1s ease-out, color 0.2s ease-out, background 0.2s ease-out;;
 }
-.submit > button:disabled {
+button {
+    transition: transform 0.1s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+}
+button[color="th-dark"] {
+    background: var(--thd);
+    color: white;
+}
+button[color="th-light"] {
+    background: var(--thl);
+    color: black;
+}
+button:disabled {
     transform: scale(1.0);
     background: rgb(180, 180, 180);
     cursor: not-allowed;
 }
-.submit > button:not([disabled]):hover {
+button:not([disabled]):hover {
     transform: scale(1.02);
 }
-.submit > button:not([disabled]):active {
+button:not([disabled]):active {
     transform: scale(0.99);
 }
