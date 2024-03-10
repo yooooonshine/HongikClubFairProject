@@ -1,4 +1,4 @@
-@import url("../fonts/Pretendard/variable/pretendardvariable.css");
+@import url('/fonts/Pretendard/variable/pretendardvariable.css");
 
 :root{
     --font: "Pretendard Variable", sans-serif;
@@ -115,11 +115,16 @@ main {
     font-weight: 700;
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition: transform 0.1s ease-out;
+    transition: transform 0.1s ease-out, color 0.2s ease-out, background 0.2s ease-out;;
 }
-.submit > button:hover {
+.submit > button:disabled {
+    transform: scale(1.0);
+    background: rgb(180, 180, 180);
+    cursor: not-allowed;
+}
+.submit > button:not([disabled]):hover {
     transform: scale(1.02);
 }
-.submit > button:active {
+.submit > button:not([disabled]):active {
     transform: scale(0.99);
 }
