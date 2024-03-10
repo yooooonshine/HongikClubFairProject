@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hongikclubfair.meetingproject.common.service.MessageService;
+import hongikclubfair.meetingproject.common.vo.MessageInfoVo;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
+import hongikclubfair.meetingproject.domain.resume.dto.request.SendSMSRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
 import hongikclubfair.meetingproject.domain.resume.service.ResumeService;
@@ -21,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class ResumeController {
 
 	private final ResumeService resumeService;
+	private final MessageService messageService;
 
 	@PostMapping
 	public Long postResume(@RequestBody PostResumeRequest request) {
@@ -40,5 +44,11 @@ public class ResumeController {
 	@GetMapping("/{id}")
 	public ResumeDetailResponse getResumeDetail(@PathVariable("id") Long id) {
 		return resumeService.getResumeDetail(id);
+	}
+
+	@PostMapping("/send/{id}")
+	public void sendSMS(@PathVariable("id") Long id, @RequestBody SendSMSRequest request) {
+		MessageInfoVo messageInfo = getResumeDetail(id).toMessageInfoVo();
+		messageService.sendSMS(messageInfo, request.phoneNumber());
 	}
 }
