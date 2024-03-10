@@ -1,26 +1,12 @@
-const male = "MALE";
-const female = "FEMALE";
-const any = "ANY";
 
-function choiceTargetGender(gender) {
-    const targetGender = makeGenderResponseValue(gender);
+function choiceTargetGender(targetGender) {
     submitForm(targetGender);
-}
-
-function makeGenderResponseValue(gender) {
-    if (gender === "male") {
-        return male;
-    } else if (gender === "female") {
-        return female;
-    } else {
-        return any;
-    }
 }
 
 function submitForm(targetGender) {
     const instagramId = localStorage.getItem("instagramId");
     const introduction = localStorage.getItem("introduction");
-    const gender = makeGenderResponseValue(localStorage.getItem("gender"));
+    const gender = localStorage.getItem("gender");
 
     if (instagramId === null || introduction === null || gender === null) {
         alert("기본정보를 입력해주세요.");
@@ -43,7 +29,7 @@ function submitForm(targetGender) {
             localStorage.setItem("memberId", data.data["id"]);
             window.location.assign("/people_choice");
         },
-        error: function (request,status,error) {
+        error: function (request, status, error) {
             if (request.status === 400) {
                 alert("형식이 잘못되었습니다.");
             } else if (request.status === 409) {
@@ -66,13 +52,12 @@ function requestId(instagramId) {
     $.ajax({
         type: 'get',
         url: '/api/resume/instagramId/' + instagramId,
-        dataType: 'html',
+        dataType: 'json',
         async: false,
         success: function (data) {
             memberId = data.data["id"];
-            // memberId = data.data
         },
-        error: function (request,status,error) {
+        error: function (request, status, error) {
             if (request.status === 400) {
                 alert("요청이 잘못되었습니다.");
             } else if (request.status === 404) {
