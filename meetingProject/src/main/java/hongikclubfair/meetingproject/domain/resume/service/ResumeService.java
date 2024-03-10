@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import hongikclubfair.meetingproject.domain.resume.domain.Gender;
 import hongikclubfair.meetingproject.domain.resume.domain.Resume;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
+import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
 import hongikclubfair.meetingproject.domain.resume.exception.InstagramIdDuplicateException;
 import hongikclubfair.meetingproject.domain.resume.exception.ResumeNotFoundException;
@@ -56,5 +57,12 @@ public class ResumeService {
 		return resumes.stream()
 			.map(ResumeSimpleResponse::fromResume)
 			.toList();
+	}
+
+	@Transactional(readOnly = true)
+	public ResumeDetailResponse getResumeDetail(Long id) {
+		return resumeRepository.findById(id)
+			.map(ResumeDetailResponse::fromResume)
+			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
+import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
 import hongikclubfair.meetingproject.domain.resume.service.ResumeService;
 import lombok.RequiredArgsConstructor;
@@ -34,5 +35,10 @@ public class ResumeController {
 	@GetMapping("/match/{id}")
 	public List<ResumeSimpleResponse> matchResume(@PathVariable("id") Long id) {
 		return resumeService.matchResume(id);
+	}
+
+	@GetMapping("/{id}")
+	public ResumeDetailResponse getResumeDetail(@PathVariable("id") Long id) {
+		return resumeService.getResumeDetail(id);
 	}
 }
