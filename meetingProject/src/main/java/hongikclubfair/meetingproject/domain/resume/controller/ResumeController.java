@@ -1,7 +1,5 @@
 package hongikclubfair.meetingproject.domain.resume.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +13,7 @@ import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest
 import hongikclubfair.meetingproject.domain.resume.dto.request.SendSMSRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeIdResponse;
-import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
+import hongikclubfair.meetingproject.domain.resume.dto.response.ResumePreviewResponse;
 import hongikclubfair.meetingproject.domain.resume.service.ResumeService;
 import lombok.RequiredArgsConstructor;
 
@@ -38,7 +36,7 @@ public class ResumeController {
 	}
 
 	@GetMapping("/match/{id}")
-	public List<ResumeSimpleResponse> matchResume(@PathVariable("id") Long id) {
+	public ResumePreviewResponse matchResume(@PathVariable("id") Long id) {
 		return resumeService.matchResume(id);
 	}
 
