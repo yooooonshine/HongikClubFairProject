@@ -10,24 +10,23 @@ import lombok.extern.slf4j.Slf4j;
 public class MainController {
 
 	@GetMapping("/")
-	public String main() {
-		log.info("why=================================");
-		return "main";
+	public String intro() {
+		return "intro";
 	}
 
-	@GetMapping("/gender")
-	public String gender() {
-		return "gender";
-	}
-
-	@GetMapping("/form")
+	@GetMapping("/member_form")
 	public String form() {
-		return "form";
+		return "memberForm";
 	}
 
-	@GetMapping("/choice")
-	public String choice() {
-		return "choice";
+	@GetMapping("/people_choice")
+	public String peopleChoice() {
+		return "peopleChoice";
+	}
+
+	@GetMapping("/target_gender_choice")
+	public String genderChoice() {
+		return "targetGenderChoice";
 	}
 
 	@GetMapping("/result")
