@@ -4,7 +4,7 @@ import hongikclubfair.meetingproject.common.exception.MeetingException;
 
 public class ResumeNotFoundException extends MeetingException {
 
-	private final static MeetingException EXCEPTION = new ResumeNotFoundException();
+	public final static MeetingException EXCEPTION = new ResumeNotFoundException();
 
 	private ResumeNotFoundException() {
 		super(ResumeErrorCode.RESUME_NOT_FOUND);
