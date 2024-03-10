@@ -10,6 +10,8 @@ window.onload = function () {
 function requestMatching() {
     const memberId = localStorage.getItem("memberId");
 
+    $("#cardContainer").empty();
+
     document.querySelector("#button-rematching").disabled = true;
 
     if (memberId === null) {
@@ -21,22 +23,20 @@ function requestMatching() {
     $.ajax({
         type: 'get',
         url: '/api/resume/match/' + memberId,
-        dataType: 'html',
+        async: false,
+        dataType: 'json',
         success: function (data) {
-            if (data.status === 200) {
-                const memberInfos = data.data;
-
-                for (let memberInfo in memberInfos) {
-                    let memberId = memberInfo['resumeId'];
-                    let gender = memberInfo['gender'];
-                    let introduction = memberInfo['introduction'];
-                    makeMemberCard(memberId, gender, introduction);
-                }
-
-                setTimeout(() => {
-                    document.querySelector("#button-rematching").disabled = false;
-                }, 2000)
+            const memberInfos = data.data;
+            for (let i = 0; i < memberInfos.length; i++) {
+                let memberId = memberInfos[i]['resumeId'];
+                let gender = memberInfos[i]['gender'];
+                let introduction = memberInfos[i]['introduction'];
+                makeMemberCard(memberId, gender, introduction);
             }
+
+            setTimeout(() => {
+                document.querySelector("#button-rematching").disabled = false;
+            }, 2000)
         },
         error: function (request, status, error) {
             if (request.status === 400) {
@@ -60,7 +60,7 @@ function makeMemberCard(memberId, gender, introduction) {
     let cardHtml = '';
     cardHtml += `<div class="card ${gender.toLowerCase()}">`;
     cardHtml += `    <div class="title">`;
-    cardHtml += `        <img src="../static/images/hongik-${gender === 'MALE' ? 'm' : 'f'}.svg" />`;
+    cardHtml += `        <img src="/images/hongik-${gender === 'MALE' ? 'm' : 'f'}.svg" />`;
     cardHtml += `        <p class="name">익명의 ${genderText}</p>`;
     cardHtml += `    </div>`;
     cardHtml += `    <p class="introduce">${introduction}</p>`;
