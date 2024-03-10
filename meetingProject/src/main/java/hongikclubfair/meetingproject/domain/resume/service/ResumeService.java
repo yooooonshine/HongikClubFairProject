@@ -11,6 +11,7 @@ import hongikclubfair.meetingproject.domain.resume.domain.Gender;
 import hongikclubfair.meetingproject.domain.resume.domain.Resume;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
+import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeIdResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
 import hongikclubfair.meetingproject.domain.resume.exception.InstagramIdDuplicateException;
 import hongikclubfair.meetingproject.domain.resume.exception.ResumeNotFoundException;
@@ -26,19 +27,19 @@ public class ResumeService {
 	private final ResumeRepository resumeRepository;
 	private final static List<Gender> BOTH_GENDER = List.of(MALE, FEMALE);
 
-	public Long postResume(PostResumeRequest request) {
+	public ResumeIdResponse postResume(PostResumeRequest request) {
 		if (resumeRepository.existsByInstagramId(request.instagramId())) {
 			throw InstagramIdDuplicateException.EXCEPTION;
 		}
 		Resume resume = request.toResume();
 
-		return resumeRepository.save(resume).getId();
+		return ResumeIdResponse.fromResume(resumeRepository.save(resume));
 	}
 
 	@Transactional(readOnly = true)
-	public Long getInstagramId(String instagramId) {
+	public ResumeIdResponse getInstagramId(String instagramId) {
 		return resumeRepository.findByInstagramId(instagramId)
-			.map(Resume::getId)
+			.map(ResumeIdResponse::fromResume)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 

@@ -14,6 +14,7 @@ import hongikclubfair.meetingproject.common.vo.MessageInfoVo;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.request.SendSMSRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
+import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeIdResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeSimpleResponse;
 import hongikclubfair.meetingproject.domain.resume.service.ResumeService;
 import lombok.RequiredArgsConstructor;
@@ -27,12 +28,12 @@ public class ResumeController {
 	private final MessageService messageService;
 
 	@PostMapping
-	public Long postResume(@RequestBody PostResumeRequest request) {
+	public ResumeIdResponse postResume(@RequestBody PostResumeRequest request) {
 		return resumeService.postResume(request);
 	}
 
 	@GetMapping("/instagramId/{instagramId}")
-	public Long getInstagramId(@PathVariable("instagramId") String instagramId) {
+	public ResumeIdResponse getInstagramId(@PathVariable("instagramId") String instagramId) {
 		return resumeService.getInstagramId(instagramId);
 	}
 
