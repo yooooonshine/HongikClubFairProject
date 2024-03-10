@@ -3,7 +3,6 @@ window.onload = function() {
     fetch("/api/resume/"+chosenMemberId)
         .then((response) => response.json())
         .then((result) => {
-            console.log(result);
             makeMemberCard(result.data.instagramId, result.data.introduction);
         })
         .catch((error) => {
@@ -51,7 +50,7 @@ function sendMessage() {
 }
 
 function submitForm(phoneNumber) {
-    const memberId = localStorage.getItem("memberId");
+    const memberId = localStorage.getItem("chosenMemberId");
 
     phoneNumber = phoneNumber.replace("-", "");
 
