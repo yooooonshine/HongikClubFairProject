@@ -1,0 +1,154 @@
+.input-form {
+    margin-bottom: 3rem;
+}
+
+.input-form > p {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.input-radiobuttons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.input-radiobuttons > .button {
+    position: relative;
+    flex: 1;
+    border-radius: 0.75rem;
+    background: white;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
+    height: 3rem;
+    overflow: hidden;
+}
+.input-radiobuttons > .button > input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+}
+.input-radiobuttons > .button > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 2rem);
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: black;
+    pointer-events: none;
+}
+.input-radiobuttons > .button > .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: box-shadow 0.2s ease-out;
+}
+.input-radiobuttons > .button > input[type="radio"]:hover ~ .border,
+.input-radiobuttons > .button > input[type="radio"]:focus ~ .border {
+    box-shadow: inset 0 0 0 0.075rem black;
+}
+.input-radiobuttons > .button > input[type="radio"]:checked ~ label {
+    background: black;
+    color: white;
+}
+.input-radiobuttons > .button > input[type="radio"]:checked ~ .border {
+    box-shadow: inset 0 0 0 0.075rem black;
+}
+
+.input-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    border-radius: 0.75rem;
+    width: calc(100% - 2rem);
+    height: 3rem;
+    background: white;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
+}
+.input-text > .prefix {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.input-text > input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 100%;
+    display: block;
+}
+.input-text > .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: box-shadow 0.2s ease-out;
+}
+.input-text > input:focus ~ .border {
+    box-shadow: inset 0 0 0 0.075rem black;
+}
+
+.input-textarea {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    width: calc(100% - 2rem);
+    background: white;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
+}
+.input-textarea > .prefix {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.input-textarea > textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 7rem;
+    width: 100%;
+    resize: none;
+    display: block;
+}
+.input-textarea > .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: box-shadow 0.2s ease-out;
+}
+.input-textarea > textarea:focus ~ .border {
+    box-shadow: inset 0 0 0 0.075rem black;
+}
