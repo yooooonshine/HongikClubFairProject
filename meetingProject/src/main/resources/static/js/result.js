@@ -1,9 +1,8 @@
 window.onload = function() {
     const chosenMemberId = localStorage.getItem("chosenMemberId");
-    fetch("/resume/"+chosenMemberId)
+    fetch("/api/resume/"+chosenMemberId)
         .then((response) => response.json())
         .then((result) => {
-            console.log(result);
             makeMemberCard(result.data.instagramId, result.data.introduction);
         })
         .catch((error) => {
@@ -15,7 +14,7 @@ window.onload = function() {
             } else if(error.status === 500){
                 alert("잘못된 요청입니다.");
             } else {
-                alert("알 수 없는 예외 입니다.");
+                alert("알 수 없는 예외입니다.");
             }
         })
 }
@@ -51,7 +50,9 @@ function sendMessage() {
 }
 
 function submitForm(phoneNumber) {
-    const memberId = localStorage.getItem("memberId");
+    const memberId = localStorage.getItem("chosenMemberId");
+
+    phoneNumber = phoneNumber.replace("-", "");
 
     $.ajax({
         type: 'post',
@@ -61,22 +62,19 @@ function submitForm(phoneNumber) {
         },
         dataType: 'JSON',
         success: function (data) {
-            if(data.status === 200){
-                window.localStorage.clear();
-                window.location.assign("/intro");
-            }
-            if(data.status === 400){
-                alert("잘못된 요청입니다.");
-            } else if(data.status === 404){
-                alert("선택된 사람을 찾지 못했습니다.");
-            } else if(data.status === 500){
-                alert("잘못된 요청입니다.");
-            } else {
-                alert("알 수 없는 에러입니다.");
-            }
+            window.localStorage.clear();
+            window.location.assign("/intro");
         },
-        error: function (jqrXHR, status, error) {
-            alert("서버와 연결되지 않았습니다.");
+        error: function (request, status, error) {
+            if(request.status === 400){
+                alert("잘못된 요청입니다.");
+            } else if(request.status === 404){
+                alert("선택된 사람을 찾지 못했습니다.");
+            } else if(request.status === 500){
+                alert("서버가 작동하지 않습니다.");
+            } else {
+                alert("알 수 없는 예외입니다.");
+            }
         },
     })
 }

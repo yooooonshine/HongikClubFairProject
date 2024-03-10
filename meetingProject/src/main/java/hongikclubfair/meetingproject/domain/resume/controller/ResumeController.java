@@ -28,7 +28,7 @@ public class ResumeController {
 	private final MessageService messageService;
 
 	@PostMapping
-	public ResumeIdResponse postResume(@RequestBody PostResumeRequest request) {
+	public ResumeIdResponse postResume(PostResumeRequest request) {
 		return resumeService.postResume(request);
 	}
 
@@ -48,7 +48,7 @@ public class ResumeController {
 	}
 
 	@PostMapping("/send/{id}")
-	public void sendSMS(@PathVariable("id") Long id, @RequestBody SendSMSRequest request) {
+	public void sendSMS(@PathVariable("id") Long id, 	SendSMSRequest request) {
 		MessageInfoVo messageInfo = getResumeDetail(id).toMessageInfoVo();
 		messageService.sendSMS(messageInfo, request.phoneNumber());
 	}
