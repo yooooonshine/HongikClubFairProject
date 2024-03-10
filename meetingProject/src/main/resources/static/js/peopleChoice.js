@@ -3,6 +3,9 @@ const FEMALE = "여성";
 
 
 window.onload = function () {
+    //makeMemberCard('test1', 'MALE', 'aaaa')
+    //makeMemberCard('test1', 'MALE', 'aaaa')
+    //makeMemberCard('test1', 'FEMALE', 'aaaa')
     requestMatching();
 };
 
