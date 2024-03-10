@@ -18,12 +18,9 @@ function requestMatching() {
         window.location.assign("/member_form");
     }
 
-    let data = {"id" : memberId};
-
     $.ajax({
         type: 'get',
-        url: '/api/resume',
-        data: data,
+        url: '/api/resume/match/' + memberId,
         dataType: 'html',
         success: function (data) {
             if (data.status === 200) {
@@ -40,19 +37,18 @@ function requestMatching() {
                     document.querySelector("#button-rematching").disabled = false;
                 }, 2000)
             }
-            if (data.status === 400) {
+        },
+        error: function (request, status, error) {
+            if (request.status === 400) {
                 alert("형식이 잘못되었습니다.");
-            } else if (data.status === 500) {
+            } else if (request.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {
-                alert("알 수 없는 예외입니다.");
+                alert("peopleChoice" + request.status + " 예외입니다.");
             }
-        },
-        error: function () {
+
             deleteMemberCardAll();
             makeErrorMessage();
-            alert("서버와의 연결이 되지 않습니다.");
-
         },
     })
 }
