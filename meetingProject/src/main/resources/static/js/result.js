@@ -63,7 +63,7 @@ function submitForm(phoneNumber) {
         dataType: 'JSON',
         success: function (data) {
             window.localStorage.clear();
-            window.location.assign("/intro");
+            window.location.assign("/");
         },
         error: function (request, status, error) {
             if(request.status === 400){
@@ -84,7 +84,7 @@ function directBeforePage() {
     history.back();
 }
 
-function backToBeginning() {
+function directIntro() {
     window.localStorage.clear();
     window.location.assign("/");
 }
