@@ -1,14 +1,19 @@
-const MALE = "남자";
-const FEMALE = "여자";
+const MALE = "남성";
+const FEMALE = "여성";
 
 
 window.onload = function () {
-    requestMatching();
+    makeMemberCard("a1", "FEMALE", "아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아")
+    makeMemberCard("a2", "FEMALE", "아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아")
+    makeMemberCard("a3", "MALE", "아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아아")
+    //requestMatching();
 };
 
 //매칭 요청하기
 function requestMatching() {
     const memberId = localStorage.getItem("memberId");
+
+    document.querySelector("#button-rematching").disabled = true;
 
     if (memberId === null) {
         alert("기본 정보를 입력해주세요");
@@ -33,6 +38,10 @@ function requestMatching() {
                     let introduction = memberInfo['introduction'];
                     makeMemberCard(memberId, gender, introduction);
                 }
+
+                setTimeout(() => {
+                    document.querySelector("#button-rematching").disabled = false;
+                }, 2000)
             }
             if (data.status === 400) {
                 alert("형식이 잘못되었습니다.");
@@ -55,16 +64,15 @@ function requestMatching() {
 function makeMemberCard(memberId, gender, introduction) {
     const genderText = makeGenderText(gender);
 
-    const cardHtml =
-        "<div class='col'>\n" +
-        "            <div class='card' style='width: 18rem;'>\n" +
-        "                <div class='card-body'>\n" +
-        "                    <h5 id='gender' class='card-title'>" + "익명의" + genderText + "</h5>\n" +
-        "                    <p id='introduce' class='card-text'> "+ introduction + "</p>\n" +
-        "                    <button id=" + memberId + " type='button' class='btn btn-primary' onclick='choicePeople(this.id)'>선택</button>\n" +
-        "                </div>\n" +
-        "            </div>\n" +
-        "        </div>";
+    let cardHtml = '';
+    cardHtml += `<div class="card ${gender.toLowerCase()}">`;
+    cardHtml += `    <div class="title">`;
+    cardHtml += `        <img src="../static/images/hongik-${gender === 'MALE' ? 'm' : 'f'}.svg" />`;
+    cardHtml += `        <p class="name">익명의 ${genderText}</p>`;
+    cardHtml += `    </div>`;
+    cardHtml += `    <p class="introduce">${introduction}</p>`;
+    cardHtml += `    <button id="${memberId}" onclick="choicePeople(this.id)">선택</button>`;
+    cardHtml += `</div>`;
 
     $("#cardContainer").append(cardHtml);
 }
