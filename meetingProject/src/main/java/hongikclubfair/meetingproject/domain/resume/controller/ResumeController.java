@@ -31,8 +31,8 @@ public class ResumeController {
 	}
 
 	@GetMapping("/instagramId/{instagramId}")
-	public ResumeIdResponse getInstagramId(@PathVariable("instagramId") String instagramId) {
-		return resumeService.getInstagramId(instagramId);
+	public ResumeIdResponse findId(@PathVariable("instagramId") String instagramId) {
+		return resumeService.findIdByInstagramId(instagramId);
 	}
 
 	@GetMapping("/match/{id}")

@@ -38,7 +38,7 @@ public class ResumeService {
 	}
 
 	@Transactional(readOnly = true)
-	public ResumeIdResponse getInstagramId(String instagramId) {
+	public ResumeIdResponse findIdByInstagramId(String instagramId) {
 		return resumeRepository.findByInstagramId(instagramId)
 			.map(ResumeIdResponse::fromResume)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
