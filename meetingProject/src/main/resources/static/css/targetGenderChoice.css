@@ -1,0 +1,47 @@
+.input-form {
+    width: 100%;
+}
+
+.input-buttons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.input-buttons > button {
+    position: relative;
+    flex: 1;
+    border-radius: 1.5rem;
+    background: white;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
+    height: 13rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    transition: box-shadow 0.2s ease-out, color 0.2s ease-out;
+    cursor: pointer;
+}
+.input-buttons > button:hover,
+.input-buttons > button:active {
+    transform: none;
+}
+.input-buttons > button[id="male"]:hover,
+.input-buttons > button[id="male"]:active {
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(128, 128, 255);
+    color: rgb(128, 128, 255);
+}
+.input-buttons > button[id="female"]:hover,
+.input-buttons > button[id="female"]:active {
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(255, 128, 128);
+    color: rgb(255, 128, 128);
+}
+.input-buttons > button[id="any"]:hover,
+.input-buttons > button[id="any"]:active {
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(180, 128, 255);
+    color: rgb(180, 128, 255);
+}
