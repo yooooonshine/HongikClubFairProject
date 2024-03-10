@@ -17,6 +17,9 @@
     gap: 2rem;
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
 }
+.card > .profile {
+    flex: 1;
+}
 .card > .profile > .instagramId {
     height: 1.5rem;
     line-height: 1.5rem;
@@ -30,8 +33,8 @@
     font-weight: 500;
 }
 .card > .qrcode {
-    width: 13rem;
-    height: 13rem;
+    width: 10rem;
+    height: 10rem;
 }
 .card > .qrcode > img {
     width: 100%;

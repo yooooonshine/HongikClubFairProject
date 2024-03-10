@@ -60,34 +60,34 @@
     pointer-events: none;
     transition: box-shadow 0.2s ease-out;
 }
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:hover ~ label,
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:focus ~ label{
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:hover ~ label,
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:focus ~ label {
     color: var(--thm);
 }
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:hover ~ .border,
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:focus ~ .border {
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:hover ~ .border,
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:focus ~ .border {
     box-shadow: inset 0 0 0 0.075rem var(--thm);
 }
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:checked ~ label {
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:checked ~ label {
     background: var(--thm);
     color: white;
 }
-.input-radiobuttons > .button > input[type="radio"][value="boy"]:checked ~ .border {
+.input-radiobuttons > .button > input[type="radio"][value="MALE"]:checked ~ .border {
     box-shadow: inset 0 0 0 0.075rem var(--thm);
 }
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:hover ~ label,
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:focus ~ label{
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:hover ~ label,
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:focus ~ label{
     color: var(--thf);
 }
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:hover ~ .border,
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:focus ~ .border {
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:hover ~ .border,
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:focus ~ .border {
     box-shadow: inset 0 0 0 0.075rem var(--thf);
 }
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:checked ~ label {
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:checked ~ label {
     background: var(--thf);
     color: white;
 }
-.input-radiobuttons > .button > input[type="radio"][value="girl"]:checked ~ .border {
+.input-radiobuttons > .button > input[type="radio"][value="FEMALE"]:checked ~ .border {
     box-shadow: inset 0 0 0 0.075rem var(--thf);
 }
 

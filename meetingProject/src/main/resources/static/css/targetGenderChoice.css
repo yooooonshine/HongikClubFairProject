@@ -30,18 +30,18 @@
 .input-buttons > button:active {
     transform: none;
 }
-.input-buttons > button[id="male"]:hover,
-.input-buttons > button[id="male"]:active {
+.input-buttons > button[id="MALE"]:hover,
+.input-buttons > button[id="MALE"]:active {
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(128, 128, 255);
     color: rgb(128, 128, 255);
 }
-.input-buttons > button[id="female"]:hover,
-.input-buttons > button[id="female"]:active {
+.input-buttons > button[id="FEMALE"]:hover,
+.input-buttons > button[id="FEMALE"]:active {
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(255, 128, 128);
     color: rgb(255, 128, 128);
 }
-.input-buttons > button[id="any"]:hover,
-.input-buttons > button[id="any"]:active {
+.input-buttons > button[id="ANY"]:hover,
+.input-buttons > button[id="ANY"]:active {
     box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15), inset 0 0 0 0.1rem rgb(180, 128, 255);
     color: rgb(180, 128, 255);
 }
