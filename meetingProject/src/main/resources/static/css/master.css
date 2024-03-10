@@ -1,7 +1,8 @@
-@import url("../font/Pretendard/variable/pretendardvariable.css");
+@import url("../fonts/Pretendard/variable/pretendardvariable.css");
 
 :root{
     --font: "Pretendard Variable", sans-serif;
+    --bg: rgb(255, 255, 255);
 }
 
 html {
@@ -13,6 +14,112 @@ body {
     margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6,p {
+h1, h2, h3, h4, h5, h6, p {
     margin:0;
+}
+input, textarea, button {
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+}
+input::placeholder, textarea::placeholder {
+    color: rgb(180, 180, 180);
+}
+button {
+    transition: transform 0.1s ease-out;
+}
+button:hover {
+    transform: scale(1.02);
+}
+button:active {
+    transform: scale(0.99);
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outwrapper {
+    width: 42rem;
+    height: 42rem;
+    padding: 3rem;
+    border-radius: 3rem;
+    background: rgb(245, 245, 245);
+}
+
+.inwrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.inwrapper > h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: black;
+    line-height: 3rem;
+}
+
+.inwrapper > .form {
+    width: 100%;
+}
+
+#button-before {
+    position: fixed;
+    top: 3rem;
+    left: 3rem;
+    padding: 1rem 2rem;
+    border-radius: 0 2rem 2rem 2rem;
+    background: rgb(245, 245, 245);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+#button-reset {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem 2rem 0 2rem;
+    background: rgb(245, 245, 245);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.submit {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.submit > button {
+    border: none;
+    outline: none;
+    background: black;
+    color: white;
+    height: 3rem;
+    width: 16rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.1s ease-out;
+}
+.submit > button:hover {
+    transform: scale(1.02);
+}
+.submit > button:active {
+    transform: scale(0.99);
 }
