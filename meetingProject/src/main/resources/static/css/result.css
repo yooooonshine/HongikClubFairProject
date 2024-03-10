@@ -30,12 +30,12 @@
     font-weight: 500;
 }
 .card > .qrcode {
-    width: 12rem;
-    height: 12rem;
+    width: 13rem;
+    height: 13rem;
 }
 .card > .qrcode > img {
-    width: 12rem;
-    height: 12rem;
+    width: 100%;
+    height: 100%;
 }
 
 .input-set {
