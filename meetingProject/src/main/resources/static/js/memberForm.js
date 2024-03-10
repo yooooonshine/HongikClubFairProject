@@ -1,5 +1,4 @@
 function clickNext() {
-
     const gender = document.querySelector('input[name=btnradio]:checked');
     const instagramId = document.querySelector("#instagramId");
     const introduction = document.querySelector("#introduction");
@@ -15,8 +14,7 @@ function clickNext() {
         alert('인스타그램 아이디를 입력해주세요');
         instagramId.focus();
         return;
-    }
-    else if (!instagramIdRegex.test(instagramId.value)) {
+    } else if (!instagramIdRegex.test(instagramId.value)) {
         alert('올바른 인스타그램 아이디를 입력해주세요');
         return;
     }
@@ -26,8 +24,7 @@ function clickNext() {
         alert('자기소개를 입력해주세요');
         introduction.focus();
         return;
-    }
-    else if (!introductionRegex.test(introduction.value)) {
+    } else if (!introductionRegex.test(introduction.value)) {
         alert('자기소개는 영문, 한문, 숫자, 특수문자 100자 이내로 작성해주세요');
         introduction.focus();
         return;

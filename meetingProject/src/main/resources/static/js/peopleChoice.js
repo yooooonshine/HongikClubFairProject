@@ -13,6 +13,8 @@ window.onload = function () {
 function requestMatching() {
     const memberId = localStorage.getItem("memberId");
 
+    $("#cardContainer").empty();
+
     document.querySelector("#button-rematching").disabled = true;
 
     if (memberId === null) {
@@ -21,41 +23,35 @@ function requestMatching() {
         window.location.assign("/member_form");
     }
 
-    let data = {"id" : memberId};
-
     $.ajax({
         type: 'get',
-        url: '/api/resume',
-        data: data,
-        dataType: 'html',
+        url: '/api/resume/match/' + memberId,
+        async: false,
+        dataType: 'json',
         success: function (data) {
-            if (data.status === 200) {
-                const memberInfos = data.data;
-
-                for (let memberInfo in memberInfos) {
-                    let memberId = memberInfo['resumeId'];
-                    let gender = memberInfo['gender'];
-                    let introduction = memberInfo['introduction'];
-                    makeMemberCard(memberId, gender, introduction);
-                }
-
-                setTimeout(() => {
-                    document.querySelector("#button-rematching").disabled = false;
-                }, 2000)
+            const memberInfos = data.data;
+            for (let i = 0; i < memberInfos.length; i++) {
+                let memberId = memberInfos[i]['resumeId'];
+                let gender = memberInfos[i]['gender'];
+                let introduction = memberInfos[i]['introduction'];
+                makeMemberCard(memberId, gender, introduction);
             }
-            if (data.status === 400) {
+
+            setTimeout(() => {
+                document.querySelector("#button-rematching").disabled = false;
+            }, 2000)
+        },
+        error: function (request, status, error) {
+            if (request.status === 400) {
                 alert("형식이 잘못되었습니다.");
-            } else if (data.status === 500) {
+            } else if (request.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {
-                alert("알 수 없는 예외입니다.");
+                alert("peopleChoice" + request.status + " 예외입니다.");
             }
-        },
-        error: function () {
+
             deleteMemberCardAll();
             makeErrorMessage();
-            alert("서버와의 연결이 되지 않습니다.");
-
         },
     })
 }
