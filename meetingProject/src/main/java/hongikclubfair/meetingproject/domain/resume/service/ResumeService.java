@@ -13,12 +13,14 @@ import lombok.RequiredArgsConstructor;
 public class ResumeService {
 	private final ResumeRepository resumeRepository;
 
-	public void postResume(PostResumeRequest request) {
+	public Long postResume(PostResumeRequest request) {
 		if (resumeRepository.existsByInstagramId(request.instagramId())) {
 			throw InstagramIdDuplicateException.EXCEPTION;
 		}
 		Resume resume = request.toResume();
 
 		resumeRepository.save(resume);
+		return resumeRepository.save(resume).getId();
+	}
 	}
 }

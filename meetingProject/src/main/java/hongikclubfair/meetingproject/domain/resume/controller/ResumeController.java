@@ -17,8 +17,8 @@ public class ResumeController {
 	private final ResumeService resumeService;
 
 	@PostMapping
-	public void postResume(@RequestBody PostResumeRequest request) {
-		resumeService.postResume(request);
+	public Long postResume(@RequestBody PostResumeRequest request) {
+		return resumeService.postResume(request);
 	}
 
 }
