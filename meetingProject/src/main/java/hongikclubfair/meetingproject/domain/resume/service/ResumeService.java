@@ -35,6 +35,13 @@ public class ResumeService {
 	}
 
 	@Transactional(readOnly = true)
+	public Long getInstagramId(String instagramId) {
+		return resumeRepository.findByInstagramId(instagramId)
+			.map(Resume::getId)
+			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
+	}
+
+	@Transactional(readOnly = true)
 	public List<ResumeSimpleResponse> matchResume(Long id) {
 		Resume resume = resumeRepository.findById(id)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);

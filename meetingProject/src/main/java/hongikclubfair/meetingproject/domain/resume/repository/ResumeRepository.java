@@ -1,6 +1,7 @@
 package hongikclubfair.meetingproject.domain.resume.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,6 +12,8 @@ import hongikclubfair.meetingproject.domain.resume.domain.Resume;
 
 public interface ResumeRepository extends JpaRepository<Resume, Long> {
 	boolean existsByInstagramId(String instagramId);
+
+	Optional<Resume> findByInstagramId(String instagramId);
 
 	@Query(value = "select * "
 		+ "from resume "

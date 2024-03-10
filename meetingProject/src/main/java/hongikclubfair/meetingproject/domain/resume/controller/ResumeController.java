@@ -26,6 +26,11 @@ public class ResumeController {
 		return resumeService.postResume(request);
 	}
 
+	@GetMapping("/instagramId/{instagramId}")
+	public Long getInstagramId(@PathVariable("instagramId") String instagramId) {
+		return resumeService.getInstagramId(instagramId);
+	}
+
 	@GetMapping("/match/{id}")
 	public List<ResumeSimpleResponse> matchResume(@PathVariable("id") Long id) {
 		return resumeService.matchResume(id);
