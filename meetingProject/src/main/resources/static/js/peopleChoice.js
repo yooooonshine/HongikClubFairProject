@@ -3,6 +3,9 @@ const FEMALE = "여성";
 
 
 window.onload = function () {
+    //makeMemberCard('test1', 'MALE', 'aaaa')
+    //makeMemberCard('test1', 'MALE', 'aaaa')
+    //makeMemberCard('test1', 'FEMALE', 'aaaa')
     requestMatching();
 };
 
@@ -64,7 +67,7 @@ function makeMemberCard(memberId, gender, introduction) {
     let cardHtml = '';
     cardHtml += `<div class="card ${gender.toLowerCase()}">`;
     cardHtml += `    <div class="title">`;
-    cardHtml += `        <img src="../static/images/hongik-${gender === 'MALE' ? 'm' : 'f'}.svg" />`;
+    cardHtml += `        <img src="/images/hongik-${gender === 'MALE' ? 'm' : 'f'}.svg" />`;
     cardHtml += `        <p class="name">익명의 ${genderText}</p>`;
     cardHtml += `    </div>`;
     cardHtml += `    <p class="introduce">${introduction}</p>`;

@@ -1,9 +1,5 @@
 .outwrapper {
     width: 50rem;
-    height: 42rem;
-    padding: 3rem;
-    border-radius: 3rem;
-    background: rgb(245, 245, 245);
 }
 
 .input-form {
@@ -17,6 +13,7 @@
 }
 
 .card {
+    flex: 1;
     padding: 1.5rem 1.5rem;
     border-radius: 1.5rem;
     background: white;
@@ -59,12 +56,13 @@
     width: 100%;
     height: 3rem;
     border-radius: 0.75rem;
-    background: rgb(245, 245, 245);
+    background: var(--bgl);
     font-size: 1rem;
     font-weight: 700;
     color: var(--th);
     cursor: pointer;
     transition: transform 0.1s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+    box-shadow: none;
 }
 .card:hover > button {
     background: var(--th);
