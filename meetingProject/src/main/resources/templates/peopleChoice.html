@@ -4,29 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HICC개팅</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--css-->
+
+    <link rel="stylesheet" href="/fonts/Pretendard/variable/pretendardvariable.css" type="text/css">
+    <link rel="stylesheet" href="/css/master.css" type="text/css">
     <link rel="stylesheet" href="/css/peopleChoice.css" type="text/css">
 </head>
 
 <body>
-<button type="button" class="btn btn-primary" onclick="directBeforePage()">이전 페이지로</button>
-<div id="peopleChoiceQuestion">이 중에, 친해지고 싶은 분이 있나요?</div>
+    <main>
+        <div class="outwrapper">
+            <div class="inwrapper">
+                <h2>이 중에, 친해지고 싶은 분이 있나요?</h2>
 
-<div id="cardOuterContainer" class="grid text-center">
-    <div id="cardContainer" class="row">
-    </div>
-</div>
+                <div class="form">
 
-<button type="button" class="btn btn-dark" onclick="requestMatching()">다시 매칭하고 싶어요</button>
+                    <div class="input-form">
+                        <div id="cardContainer" class="input-cards">
+                        </div>
+                    </div>
 
-<button type="button" class="btn btn-dark" onclick="directIntro()">처음으로 돌아가기</button>
+                </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-<script src="/js/peopleChoice.js"></script>
+                <div class="submit">
+                    <button id="button-rematching" onclick="requestMatching()" disabled>다시 매칭하고 싶어요</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button type="button" id="button-before" onclick="directBeforePage()">이전 페이지로 돌아가기</button>
+    <button type="button" id="button-reset" onclick="directIntro()">처음으로 돌아가기</button>
+
+    <script src="/js/jquery-latest.min.js"></script>
+    <script src="/js/peopleChoice.js"></script>
 </body>
 </html>

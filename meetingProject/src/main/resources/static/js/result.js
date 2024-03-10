@@ -1,4 +1,4 @@
-window.onload=function() {
+window.onload = function() {
     const chosenMemberId = localStorage.getItem("chosenMemberId");
     fetch("/resume/"+chosenMemberId)
         .then((response) => response.json())
@@ -27,10 +27,10 @@ function makeMemberCard(instagramId, introduction) {
     const intro = document.getElementById('introduction');
     intro.innerText = introduction;
 
-    var qrcode = new QRCode(document.getElementById("qrcode"), {
-        text: "https://www.instagram.com/"+instagramId,
-        width: 150,
-        height: 150,
+    var qrcode = new QRCode(document.querySelector("#qrcode"), {
+        text: `https://www.instagram.com/${instagramId}`,
+        width: 300,
+        height: 300,
     });
 }
 
