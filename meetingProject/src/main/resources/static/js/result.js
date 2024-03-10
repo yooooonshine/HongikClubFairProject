@@ -86,5 +86,5 @@ function directBeforePage() {
 
 function backToBeginning() {
     window.localStorage.clear();
-    window.location.assign("/intro");
+    window.location.assign("/");
 }
