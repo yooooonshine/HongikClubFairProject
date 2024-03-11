@@ -14,6 +14,11 @@ public class MainController {
 		return "intro";
 	}
 
+	@GetMapping("/terms_of_use")
+	public String use() {
+		return "termsOfUse";
+	}
+
 	@GetMapping("/member_form")
 	public String form() {
 		return "memberForm";
