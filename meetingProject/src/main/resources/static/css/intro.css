@@ -17,3 +17,13 @@ main > h2 {
     font-weight: 700;
     margin-top: 1rem
 }
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink-effect 1s step-end infinite;
+}
