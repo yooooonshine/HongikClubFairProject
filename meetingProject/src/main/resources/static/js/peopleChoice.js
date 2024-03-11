@@ -76,7 +76,7 @@ function makeMemberCard(memberId, gender, introduction) {
 //매칭된 사람이 없을 경우
 function makeErrorMessage() {
     const errorMessage =
-        "<div class='col'>매칭될 사람이 아직 없어요..</div>";
+        "<div class='col'>매칭될 사람이 아직 없어요...</div>";
 
     $("#cardContainer").append(errorMessage);
 }
