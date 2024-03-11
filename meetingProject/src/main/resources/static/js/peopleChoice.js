@@ -29,7 +29,7 @@ function requestMatching() {
         async: false,
         dataType: 'json',
         success: function (data) {
-            const memberInfos = data.data;
+            const memberInfos = data.data['previews'];
             for (let i = 0; i < memberInfos.length; i++) {
                 let memberId = memberInfos[i]['resumeId'];
                 let gender = memberInfos[i]['gender'];
