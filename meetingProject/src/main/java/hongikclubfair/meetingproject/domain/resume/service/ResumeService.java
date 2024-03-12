@@ -79,4 +79,8 @@ public class ResumeService {
 				});
 	}
 
+	public void deleteResume(Long id) {
+		resumeRepository.deleteById(id);
+	}
+
 }

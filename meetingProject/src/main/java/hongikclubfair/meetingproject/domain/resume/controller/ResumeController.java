@@ -1,5 +1,6 @@
 package hongikclubfair.meetingproject.domain.resume.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,11 @@ public class ResumeController {
 	@PatchMapping("/{id}")
 	public void modifyResume(@PathVariable("id") Long id, ModifyResumeRequest request) {
 		resumeService.modifyResume(id, request);
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteResume(@PathVariable("id") Long id) {
+		resumeService.deleteResume(id);
 	}
 
 	@PostMapping("/send/{id}")
