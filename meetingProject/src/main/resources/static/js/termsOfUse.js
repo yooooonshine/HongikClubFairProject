@@ -4,6 +4,8 @@ var CHECK2 = false;
 function clickNext() {
     CHECK1 = $('#termCheckbox1').is(':checked');
     CHECK2 = $('#termCheckbox2').is(':checked');
+    localStorage.setItem("termChecked1", CHECK1);
+    localStorage.setItem("termChecked2", CHECK2);
     if(CHECK1 && CHECK2){
         window.location.assign("/member_form");
     } else if(!CHECK1){
