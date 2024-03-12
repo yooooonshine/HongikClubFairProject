@@ -76,13 +76,14 @@ public class ResumeService {
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 
-	@CacheEvict(cacheNames = "detail", key = "#id")
-	public void modifyResume(Long id, ModifyResumeRequest request) {
-		resumeRepository.findById(id)
-			.ifPresentOrElse(resume -> resume.modify(request.instagramId(), request.introduction()),
-				() -> {
-					throw ResumeNotFoundException.EXCEPTION;
-				});
+	@CacheEvict(cacheNames = "detail", key = "#result.id()")
+	public ResumeIdResponse modifyResume(String instagramId, ModifyResumeRequest request) {
+		return resumeRepository.findByInstagramId(instagramId)
+			.map(resume -> {
+				resume.modify(request.instagramId(), request.introduction());
+				return new ResumeIdResponse(resume.getId());
+			})
+			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 
 	@CacheEvict(cacheNames = {"match", "detail"}, key = "#id")

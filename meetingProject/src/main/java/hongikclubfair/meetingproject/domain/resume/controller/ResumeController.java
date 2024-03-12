@@ -48,9 +48,10 @@ public class ResumeController {
 		return resumeService.getResumeDetail(id);
 	}
 
-	@PatchMapping("/{id}")
-	public void modifyResume(@PathVariable("id") Long id, @RequestBody ModifyResumeRequest request) {
-		resumeService.modifyResume(id, request);
+	@PatchMapping("/{instagramId}")
+	public ResumeIdResponse modifyResume(@PathVariable("instagramId") String instagramId,
+		@RequestBody ModifyResumeRequest request) {
+		return resumeService.modifyResume(instagramId, request);
 	}
 
 	@DeleteMapping("/{id}")
