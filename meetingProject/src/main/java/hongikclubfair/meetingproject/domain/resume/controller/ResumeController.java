@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,7 @@ public class ResumeController {
 	private final MessageService messageService;
 
 	@PostMapping
-	public ResumeIdResponse postResume(PostResumeRequest request) {
+	public ResumeIdResponse postResume(@RequestBody PostResumeRequest request) {
 		return resumeService.postResume(request);
 	}
 
@@ -48,7 +49,7 @@ public class ResumeController {
 	}
 
 	@PatchMapping("/{id}")
-	public void modifyResume(@PathVariable("id") Long id, ModifyResumeRequest request) {
+	public void modifyResume(@PathVariable("id") Long id, @RequestBody ModifyResumeRequest request) {
 		resumeService.modifyResume(id, request);
 	}
 
@@ -58,7 +59,7 @@ public class ResumeController {
 	}
 
 	@PostMapping("/send/{id}")
-	public void sendSMS(@PathVariable("id") Long id, SendSMSRequest request) {
+	public void sendSMS(@PathVariable("id") Long id, @RequestBody SendSMSRequest request) {
 		MessageInfoVo messageInfo = getResumeDetail(id).toMessageInfoVo();
 		messageService.sendSMS(messageInfo, request.phoneNumber());
 	}
