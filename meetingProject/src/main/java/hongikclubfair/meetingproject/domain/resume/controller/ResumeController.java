@@ -54,9 +54,9 @@ public class ResumeController {
 		return resumeService.modifyResume(instagramId, request);
 	}
 
-	@DeleteMapping("/{id}")
-	public void deleteResume(@PathVariable("id") Long id) {
-		resumeService.deleteResume(id);
+	@DeleteMapping("/{instagramId}")
+	public ResumeIdResponse deleteResume(@PathVariable("instagramId") String instagramId) {
+		return resumeService.deleteResume(instagramId);
 	}
 
 	@PostMapping("/send/{id}")
