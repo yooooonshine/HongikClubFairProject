@@ -4,6 +4,8 @@ import static hongikclubfair.meetingproject.domain.resume.domain.Gender.*;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,6 +48,8 @@ public class ResumeService {
 	}
 
 	@Transactional(readOnly = true)
+	@Cacheable(cacheNames = "match", key = "#id",
+		unless = "#result.previews().size()<3")
 	public ResumePreviewResponse matchResume(Long id) {
 		Resume resume = resumeRepository.findById(id)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
@@ -65,12 +69,14 @@ public class ResumeService {
 	}
 
 	@Transactional(readOnly = true)
+	@Cacheable(cacheNames = "detail", key = "#id")
 	public ResumeDetailResponse getResumeDetail(Long id) {
 		return resumeRepository.findById(id)
 			.map(ResumeDetailResponse::fromResume)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 
+	@CacheEvict(cacheNames = "detail", key = "#id")
 	public void modifyResume(Long id, ModifyResumeRequest request) {
 		resumeRepository.findById(id)
 			.ifPresentOrElse(resume -> resume.modify(request.instagramId(), request.introduction()),
@@ -79,6 +85,7 @@ public class ResumeService {
 				});
 	}
 
+	@CacheEvict(cacheNames = {"match", "detail"}, key = "#id")
 	public void deleteResume(Long id) {
 		resumeRepository.deleteById(id);
 	}
