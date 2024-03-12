@@ -15,6 +15,7 @@ function checkTermsOfUse() {
     }
 }
 
+//다음으로 버튼
 function clickNext() {
     const gender = document.querySelector('input[name=btnradio]:checked');
     const instagramId = document.querySelector("#instagramId");
@@ -52,6 +53,11 @@ function clickNext() {
     localStorage.setItem("gender", gender.value);
 
     window.location.assign("/target_gender_choice");
+}
+
+//기존 회원 정보 삭제하기로 이동
+function moveToMemberFormDeletion() {
+    window.location.assign("/member_form_deletion");
 }
 
 //처음으로 돌아가기

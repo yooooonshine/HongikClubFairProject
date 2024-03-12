@@ -24,6 +24,11 @@ public class MainController {
 		return "memberForm";
 	}
 
+	@GetMapping("/member_form_deletion")
+	public String deletion() {
+		return "memberFormDeletion";
+	}
+
 	@GetMapping("/people_choice")
 	public String peopleChoice() {
 		return "peopleChoice";
