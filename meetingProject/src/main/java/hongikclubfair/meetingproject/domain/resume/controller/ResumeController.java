@@ -1,14 +1,16 @@
 package hongikclubfair.meetingproject.domain.resume.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hongikclubfair.meetingproject.common.service.MessageService;
 import hongikclubfair.meetingproject.common.vo.MessageInfoVo;
+import hongikclubfair.meetingproject.domain.resume.dto.request.ModifyResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.request.SendSMSRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
@@ -45,8 +47,18 @@ public class ResumeController {
 		return resumeService.getResumeDetail(id);
 	}
 
+	@PatchMapping("/{id}")
+	public void modifyResume(@PathVariable("id") Long id, ModifyResumeRequest request) {
+		resumeService.modifyResume(id, request);
+	}
+
+	@DeleteMapping("/{id}")
+	public void deleteResume(@PathVariable("id") Long id) {
+		resumeService.deleteResume(id);
+	}
+
 	@PostMapping("/send/{id}")
-	public void sendSMS(@PathVariable("id") Long id, 	SendSMSRequest request) {
+	public void sendSMS(@PathVariable("id") Long id, SendSMSRequest request) {
 		MessageInfoVo messageInfo = getResumeDetail(id).toMessageInfoVo();
 		messageService.sendSMS(messageInfo, request.phoneNumber());
 	}

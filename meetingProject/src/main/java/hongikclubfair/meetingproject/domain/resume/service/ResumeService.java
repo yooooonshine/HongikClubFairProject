@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import hongikclubfair.meetingproject.common.vo.ResumePreviewVo;
 import hongikclubfair.meetingproject.domain.resume.domain.Gender;
 import hongikclubfair.meetingproject.domain.resume.domain.Resume;
+import hongikclubfair.meetingproject.domain.resume.dto.request.ModifyResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.request.PostResumeRequest;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeDetailResponse;
 import hongikclubfair.meetingproject.domain.resume.dto.response.ResumeIdResponse;
@@ -69,4 +70,17 @@ public class ResumeService {
 			.map(ResumeDetailResponse::fromResume)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
+
+	public void modifyResume(Long id, ModifyResumeRequest request) {
+		resumeRepository.findById(id)
+			.ifPresentOrElse(resume -> resume.modify(request.instagramId(), request.introduction()),
+				() -> {
+					throw ResumeNotFoundException.EXCEPTION;
+				});
+	}
+
+	public void deleteResume(Long id) {
+		resumeRepository.deleteById(id);
+	}
+
 }

@@ -39,4 +39,9 @@ public class Resume {
 		this.gender = gender;
 		this.targetGender = targetGender;
 	}
+
+	public void modify(String instagramId, String introduction) {
+		this.instagramId = instagramId;
+		this.introduction = introduction;
+	}
 }
