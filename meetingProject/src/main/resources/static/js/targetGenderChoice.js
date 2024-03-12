@@ -58,7 +58,7 @@ function submitForm(targetGender) {
         error: function (request, status, error) {
             if (request.status === 400) {
             } else if (request.status === 409) {
-                updateFrom(data);
+                updateForm(data);
             } else if (request.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {
@@ -68,7 +68,9 @@ function submitForm(targetGender) {
     });
 }
 
-function updateFrom(data) {
+function updateForm(data) {
+    let instagramId = data["instagramId"];
+
     $.ajax({
         type: 'patch',
         url: '/api/resume/' + instagramId,
