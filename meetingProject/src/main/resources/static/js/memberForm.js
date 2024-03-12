@@ -1,4 +1,9 @@
+
 window.onload = function () {
+    checkTermsOfUse();
+};
+
+function checkTermsOfUse() {
     const termChecked1 = localStorage.getItem("termChecked1");
     const termChecked2 = localStorage.getItem("termChecked2");
 
@@ -8,7 +13,7 @@ window.onload = function () {
         localStorage.removeItem("termChecked2");
         window.location.assign("/terms_of_use");
     }
-};
+}
 
 function clickNext() {
     const gender = document.querySelector('input[name=btnradio]:checked');
@@ -41,9 +46,6 @@ function clickNext() {
         introduction.focus();
         return;
     }
-
-    localStorage.removeItem("termChecked1");
-    localStorage.removeItem("termChecked2");
 
     localStorage.setItem("instagramId", instagramId.value);
     localStorage.setItem("introduction", introduction.value);
