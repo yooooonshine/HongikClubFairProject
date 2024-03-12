@@ -1,27 +1,42 @@
 const MALE = "남성";
 const FEMALE = "여성";
 
-
 window.onload = function () {
-    //makeMemberCard('test1', 'MALE', 'aaaa')
-    //makeMemberCard('test1', 'MALE', 'aaaa')
-    //makeMemberCard('test1', 'FEMALE', 'aaaa')
-    requestMatching();
-};
+    checkTermsOfUse();
 
-//매칭 요청하기
-function requestMatching() {
     const memberId = localStorage.getItem("memberId");
 
-    $("#cardContainer").empty();
+    checkMemberId(memberId)
+    requestMatching(memberId);
+};
 
-    document.querySelector("#button-rematching").disabled = true;
+//이용 약관 확인
+function checkTermsOfUse() {
+    const termChecked1 = localStorage.getItem("termChecked1");
+    const termChecked2 = localStorage.getItem("termChecked2");
 
+    if (!termChecked1 && !termChecked2) {
+        alert("이용약관, 개인정보 수집/이용 동의서에 동의해주세요");
+        localStorage.removeItem("termChecked1");
+        localStorage.removeItem("termChecked2");
+        window.location.assign("/terms_of_use");
+    }
+}
+
+function checkMemberId(memberId) {
     if (memberId === null) {
         alert("기본 정보를 입력해주세요");
 
         window.location.assign("/member_form");
     }
+}
+
+//매칭 요청하기
+function requestMatching(memberId) {
+
+    $("#cardContainer").empty();
+
+    document.querySelector("#button-rematching").disabled = true;
 
     $.ajax({
         type: 'get',
@@ -43,7 +58,6 @@ function requestMatching() {
         },
         error: function (request, status, error) {
             if (request.status === 400) {
-                alert("형식이 잘못되었습니다.");
             } else if (request.status === 500) {
                 alert("서버가 작동하지 않습니다.");
             } else {

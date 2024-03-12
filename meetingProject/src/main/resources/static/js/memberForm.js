@@ -1,8 +1,9 @@
+
 window.onload = function () {
-    checkIfAgreed();
+    checkTermsOfUse();
 };
-//이용약관 동의 안했으면 돌아가기
-function checkIfAgreed() {
+
+function checkTermsOfUse() {
     const termChecked1 = localStorage.getItem("termChecked1");
     const termChecked2 = localStorage.getItem("termChecked2");
 
@@ -13,6 +14,7 @@ function checkIfAgreed() {
         window.location.assign("/terms_of_use");
     }
 }
+
 //다음으로 버튼
 function clickNext() {
     const gender = document.querySelector('input[name=btnradio]:checked');
@@ -45,9 +47,6 @@ function clickNext() {
         introduction.focus();
         return;
     }
-
-    localStorage.removeItem("termChecked1");
-    localStorage.removeItem("termChecked2");
 
     localStorage.setItem("instagramId", instagramId.value);
     localStorage.setItem("introduction", introduction.value);

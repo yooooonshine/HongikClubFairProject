@@ -19,7 +19,7 @@ function checkInstagramId(instagramId) {
 function deleteMember(instagramId) {
     $.ajax({
         type: 'delete',
-        url: '/api/resume/' + instagramId,
+        url: '/api/resume/' + instagramId.value,
         async: false,
         dataType: 'JSON',
         success: function (data) {
