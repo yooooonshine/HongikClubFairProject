@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hiCC</title>
+
+    <link rel="stylesheet" href="/fonts/Pretendard/variable/pretendardvariable.css" type="text/css">
+    <link rel="stylesheet" href="/css/master.css" type="text/css">
+    <link rel="stylesheet" href="/css/memberFormDeletion.css" type="text/css">
+</head>
+
+<body>
+    <main>
+        <div class="outwrapper">
+            <div class="inwrapper">
+                <h2>기존 회원 정보 삭제하기</h2>
+                <div class="form">
+                    <div class="input-form">
+                        <p>삭제하고 싶은 인스타그램 아이디를 입력해주세요.</p>
+                        <div class="input-text">
+                            <span class="prefix">@</span>
+                            <input type="text" id="instagramId" placeholder="인스타그램 아이디를 입력해주세요" autocomplete="off" spellcheck="false" tabindex="3">
+                            <div class="border"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit">
+                    <button type="button" onclick="clickDelete()" tabindex="5" color="th-dark">삭제하기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button type="button" id="button-reset" onclick="directIntro()">처음으로 돌아가기</button>
+
+    <script src="/js/jquery-latest.min.js"></script>
+    <script src="/js/memberFormDeletion.js"></script>
+</body>
+</html>

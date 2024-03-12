@@ -1,4 +1,8 @@
 window.onload = function () {
+    checkIfAgreed();
+};
+//이용약관 동의 안했으면 돌아가기
+function checkIfAgreed() {
     const termChecked1 = localStorage.getItem("termChecked1");
     const termChecked2 = localStorage.getItem("termChecked2");
 
@@ -8,8 +12,8 @@ window.onload = function () {
         localStorage.removeItem("termChecked2");
         window.location.assign("/terms_of_use");
     }
-};
-
+}
+//다음으로 버튼
 function clickNext() {
     const gender = document.querySelector('input[name=btnradio]:checked');
     const instagramId = document.querySelector("#instagramId");
@@ -50,6 +54,11 @@ function clickNext() {
     localStorage.setItem("gender", gender.value);
 
     window.location.assign("/target_gender_choice");
+}
+
+//기존 회원 정보 삭제하기로 이동
+function moveToMemberFormDeletion() {
+    window.location.assign("/member_form_deletion");
 }
 
 //처음으로 돌아가기
