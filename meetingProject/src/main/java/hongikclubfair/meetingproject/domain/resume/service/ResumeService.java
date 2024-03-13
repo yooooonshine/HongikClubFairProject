@@ -84,7 +84,7 @@ public class ResumeService {
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
 	}
 
-	@CacheEvict(cacheNames = {"match", "detail"}, key = "#result.id()")
+	@CacheEvict(cacheNames = "detail", key = "#result.id()")
 	public ResumeIdResponse deleteResume(String instagramId) {
 		return resumeRepository.findByInstagramId(instagramId)
 			.map(resume -> {
