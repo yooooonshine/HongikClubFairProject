@@ -1,5 +1,6 @@
 package hongikclubfair.meetingproject.domain.resume.domain;
 
+import hongikclubfair.meetingproject.domain.resume.dto.request.ModifyResumeRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -40,8 +41,10 @@ public class Resume {
 		this.targetGender = targetGender;
 	}
 
-	public void modify(String instagramId, String introduction) {
-		this.instagramId = instagramId;
-		this.introduction = introduction;
+	public void modify(ModifyResumeRequest request) {
+		this.instagramId = request.instagramId();
+		this.introduction = request.introduction();
+		this.gender = request.gender();
+		this.targetGender = request.targetGender();
 	}
 }

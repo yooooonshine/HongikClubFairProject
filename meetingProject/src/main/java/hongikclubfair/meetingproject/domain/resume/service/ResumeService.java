@@ -78,7 +78,7 @@ public class ResumeService {
 	public ResumeIdResponse modifyResume(String instagramId, ModifyResumeRequest request) {
 		return resumeRepository.findByInstagramId(instagramId)
 			.map(resume -> {
-				resume.modify(request.instagramId(), request.introduction());
+				resume.modify(request);
 				return new ResumeIdResponse(resume.getId());
 			})
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
