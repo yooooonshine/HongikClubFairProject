@@ -1,4 +1,9 @@
+
 window.onload = function () {
+    checkTermsOfUse();
+};
+
+function checkTermsOfUse() {
     const termChecked1 = localStorage.getItem("termChecked1");
     const termChecked2 = localStorage.getItem("termChecked2");
 
@@ -8,8 +13,9 @@ window.onload = function () {
         localStorage.removeItem("termChecked2");
         window.location.assign("/terms_of_use");
     }
-};
+}
 
+//다음으로 버튼
 function clickNext() {
     const gender = document.querySelector('input[name=btnradio]:checked');
     const instagramId = document.querySelector("#instagramId");
@@ -42,14 +48,16 @@ function clickNext() {
         return;
     }
 
-    localStorage.removeItem("termChecked1");
-    localStorage.removeItem("termChecked2");
-
     localStorage.setItem("instagramId", instagramId.value);
     localStorage.setItem("introduction", introduction.value);
     localStorage.setItem("gender", gender.value);
 
     window.location.assign("/target_gender_choice");
+}
+
+//기존 회원 정보 삭제하기로 이동
+function moveToMemberFormDeletion() {
+    window.location.assign("/member_form_deletion");
 }
 
 //처음으로 돌아가기
