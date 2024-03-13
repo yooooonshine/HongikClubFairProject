@@ -48,8 +48,6 @@ public class ResumeService {
 	}
 
 	@Transactional(readOnly = true)
-	@Cacheable(cacheNames = "match", key = "#id",
-		unless = "#result.previews().size()<3")
 	public ResumePreviewResponse matchResume(Long id) {
 		Resume resume = resumeRepository.findById(id)
 			.orElseThrow(() -> ResumeNotFoundException.EXCEPTION);
@@ -85,7 +83,7 @@ public class ResumeService {
 				});
 	}
 
-	@CacheEvict(cacheNames = {"match", "detail"}, key = "#id")
+	@CacheEvict(cacheNames = "detail", key = "#id")
 	public void deleteResume(Long id) {
 		resumeRepository.deleteById(id);
 	}
