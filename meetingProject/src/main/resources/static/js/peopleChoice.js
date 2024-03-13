@@ -1,14 +1,17 @@
 const MALE = "남성";
 const FEMALE = "여성";
+let memberId;
+
 
 window.onload = function () {
     checkTermsOfUse();
 
-    const memberId = localStorage.getItem("memberId");
+    memberId = localStorage.getItem("memberId");
 
     checkMemberId(memberId)
-    requestMatching(memberId);
+    requestMatching();
 };
+
 
 //이용 약관 확인
 function checkTermsOfUse() {
@@ -32,7 +35,7 @@ function checkMemberId(memberId) {
 }
 
 //매칭 요청하기
-function requestMatching(memberId) {
+function requestMatching() {
 
     $("#cardContainer").empty();
 
