@@ -80,6 +80,19 @@ function sendMessage() {
     submitForm(phoneNumber);
 }
 
+function autoHyphen(input) {
+
+    // 숫자만 남기고 모든 문자 제거
+    var phoneNumber = input.value.replace(/[^\d]/g, "");
+
+    // 전화번호 형식에 맞게 하이픈 추가
+    if (phoneNumber.length > 3 && phoneNumber.length <= 7) {
+        input.value = phoneNumber.slice(0, 3) + "-" + phoneNumber.slice(3);
+    } else if (phoneNumber.length > 7) {
+        input.value = phoneNumber.slice(0, 3) + "-" + phoneNumber.slice(3, 7) + "-" + phoneNumber.slice(7);
+    }
+}
+
 function submitForm(phoneNumber) {
     const memberId = localStorage.getItem("chosenMemberId");
 

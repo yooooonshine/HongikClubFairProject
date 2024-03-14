@@ -33,13 +33,12 @@
                         <p>전화번호를 적어주시면 프로필을 문자로 보내드려요.</p>
                         <div class="input-set">
                             <div class="input-text">
-                                <input type="tel" id="phoneNumber" placeholder="010-0000-0000" autocomplete="off" spellcheck="false">
+                                <input type="tel" id="phoneNumber" placeholder="010-0000-0000" oninput="autoHyphen(this)" autocomplete="off" spellcheck="false">
                                 <div class="border"></div>
                             </div>
                             <button type="button" onclick="sendMessage()" color="th-light">문자로 보내기</button>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="submit">
